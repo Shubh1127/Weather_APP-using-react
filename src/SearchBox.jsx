@@ -20,9 +20,20 @@ export default function SearchBox() {
     setCity("")
   }
   let FetchData=async()=>{
-    let res=await fetch(`${link}${City}&appid=${apikey}`);
+    let res=await fetch(`${link}${City}&appid=${apikey}&units=metric`);
     let json=await res.json();
-    console.log(json);
+    // console.log(json);
+    let result={
+            temp:json.main.temp,
+            tempMin:json.main.temp_min,
+            tempMax:json.main.temp_max,
+            humidity:json.main.humidity,
+            pressure:json.main.pressure,
+            feelsLike:json.main.feels_like,
+            weather:json.weather[0].description,
+            wind:json.wind.speed,
+    }   
+    console.log(result)
   }
   return (
     <div className="SearchBox">
