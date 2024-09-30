@@ -9,6 +9,7 @@ export default function SearchBox({updateInfo}) {
   let apikey = import.meta.env.VITE_API_KEY;
 
   let [City, setCity] = useState("");
+  
   let handleChange = (event) => {
     setCity(event.target.value);
   };
@@ -18,6 +19,7 @@ export default function SearchBox({updateInfo}) {
     setCity("")
     let newinfo=await FetchData();
     updateInfo(newinfo)
+
   }
   let FetchData=async()=>{
     let res=await fetch(`${link}${City}&appid=${apikey}&units=metric`);
@@ -37,24 +39,17 @@ export default function SearchBox({updateInfo}) {
     console.log(result)
     return result;
   }
+  
   return (
+    <>
+      <h1>Search for the weather</h1>
     <div className="searchBox">
-      <h3>Search for the weather</h3>
       <form onSubmit={handleSubmit}>
         <TextField
-          id="city"
-          label="City Name"
-          variant="outlined"
-          value={City}
-          onChange={handleChange}
-          required
-        />
-        <br></br>
-        <br></br>
-        <Button variant="contained" type="submit" >
-          SEARCH
-        </Button>
+          id="city" label="City Name" variant="outlined" value={City} onChange={handleChange} required />
+        <Button variant="contained" type="submit" > SEARCH</Button>
       </form>
     </div>
+          </>
   );
 }

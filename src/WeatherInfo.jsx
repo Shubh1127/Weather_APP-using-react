@@ -1,7 +1,9 @@
 import { useState } from "react"
+import './App.css'
 import InfoBox from "./InfoBox"
 import SearchBox from "./SearchBox"
 export default function WeatherInfo(){
+   
     let [WeatherInfo,setWeatherInfo]=useState({
         city: "Delhi",
         temp: 25.5,
@@ -10,17 +12,42 @@ export default function WeatherInfo(){
         humidity: 70,
         pressure: 1,
         feelsLike: 26,
-        weather: "haze",
+        weather: "clear",
         wind: 1.5,
       })
+      let [Image,setImage]=useState("/clear.png");
+      const getWeatherImage = (weather) => {
+          const weatherImages = {
+            haze : "/haze.png",
+            clear: "/clear.png",
+            rainy: "/rain.png",
+            clouds : "/clouds.png",
+            mist:"/mist.png",
+            overcast:"/clouds.png",
+            // Add more mappings as needed
+          };
+          if (weather.includes("cloud")) {
+            return weatherImages["clouds"];  // Map any "cloud" related weather to clouds image
+          } else if (weather.includes("rain")) {
+            return weatherImages["rainy"];    // Map any "rain" related weather to rainy image
+          } else if (weather.includes("mist")) {
+            return weatherImages["mist"];     // Mist mapping
+          }
+      
+          return weatherImages[weather] || "/clear.png"; // Default image if no match
+        };
       let updateInfo=(newinfo)=>{
             setWeatherInfo(newinfo);
+            setImage(getWeatherImage(newinfo.weather))
       }
     return(
-        <div>
-            <h2>Weather app by -shubham</h2>
-            <SearchBox updateInfo={updateInfo}/>
-            <InfoBox result={WeatherInfo}/>
+        <>
+        {/* <h2>Weather app by -shubham</h2> */}
+        <div className="a">
+            <SearchBox updateInfo={updateInfo} className="search"/>
+            
+            <InfoBox result={WeatherInfo} image={Image}/>
         </div>
+        </>
     )
 }
