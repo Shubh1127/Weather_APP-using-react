@@ -1,21 +1,7 @@
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  /* padding: 2rem; */
   text-align: center;
 }
-.searchBox {
-  width: 20vw;
-  height: 40vh;
-}
-form{
-  display: flex;
-  gap: 20px;
-}
-.a{
- align-items: center;
-  display: flex;
-  flex-direction: column;
-  /* background: red; */
-  height: 80vh;
-}
+

@@ -43,7 +43,7 @@ export default function WeatherInfo(){
     return(
         <>
         {/* <h2>Weather app by -shubham</h2> */}
-        <div className="a">
+        <div className="a flex items-center flex-col h-[80vh]">
             <SearchBox updateInfo={updateInfo} className="search"/>
             
             <InfoBox result={WeatherInfo} image={Image}/>

@@ -2,6 +2,7 @@ import TextField from "@mui/material/TextField";
 import SendIcon from "@mui/icons-material/Send";
 import Button from "@mui/material/Button";
 import "./App.css";
+import "./index.css";
 import { useState } from "react";
 export default function SearchBox({updateInfo}) {
 
@@ -42,9 +43,9 @@ export default function SearchBox({updateInfo}) {
   
   return (
     <>
-      <h1>Search for the weather</h1>
-    <div className="searchBox">
-      <form onSubmit={handleSubmit}>
+      <h1 className="text-[3.2em] leading-[1.1] mb-5">Search for the weather</h1>
+    <div className=" w-[20vw] h-[40vh] ">
+      <form onSubmit={handleSubmit} className="flex gap-5">
         <TextField
           id="city" label="City Name" variant="outlined" value={City} onChange={handleChange} required />
         <Button variant="contained" type="submit" > SEARCH</Button>

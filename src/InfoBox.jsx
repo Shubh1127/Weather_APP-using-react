@@ -13,15 +13,15 @@ export default function InfoBox({result,image}) {
     <div className="InfoBox">
       <h1></h1>
       <br></br>
-      <div className="h">
+      <div className=" h-[50vh] w-[70vw] flex">
         <img src={image}/>
-              <span className="one">
+              <span className="one ml-[20px] w-[20vw] h-[42vh] flex flex-col items-center justify-center font-bold text-lg text-black bg-white-opacity-30 p-[20px] rounded-xl">
               <p>Temperature ={result.temp}&deg;C</p>
               <p>humidity ={result.humidity}%</p>
               <p>pressure ={result.pressure}ATM</p>
               <p>feels_like ={result.feelsLike}&deg;C</p>
               </span>
-              <span className="one">
+              <span className="one ml-[20px] w-[20vw] h-[42vh] flex flex-col items-center justify-center font-bold text-lg text-black bg-white-opacity-30 p-[20px] rounded-xl">
               <p>max Temp ={result.tempMax}&deg;C</p>
               <p>min Temp ={result.tempMin}&deg;C</p>
               <p>Wind Speed ={result.wind}km/h</p>
