@@ -6,8 +6,8 @@ import "./index.css";
 import { useState } from "react";
 export default function SearchBox({updateInfo}) {
 
-    let link = import.meta.env.VITE_URL;
-  let apikey = import.meta.env.VITE_API_KEY;
+    let link = 'https://api.openweathermap.org/data/2.5/weather?units=metric&q=';
+  let apikey = 'c190936c72e53edaff0d21041094ef10';
 
   let [City, setCity] = useState("");
   
